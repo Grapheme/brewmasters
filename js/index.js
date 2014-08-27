@@ -196,8 +196,8 @@ jQuery.fn.testExam = function(obj) {
 var Popup = (function(){
 	var $overlay = $('.overlay');
 	var $popup = $('.popup');
-	var $btnRus = $('.js-button-rus');
-	var $btnUkr = $('.js-button-ukr');
+	var $btnRus = $('.js-button-ru');
+	var $btnUkr = $('.js-button-ua');
 	var $btnAge = $('.js-button-age');
 
 	function checkAge(birthDate, minAge) {
@@ -212,17 +212,17 @@ var Popup = (function(){
 		if (hash === 'ru'){
 			Popup.show(1);
 		}
-		if (hash ==='ukr'){
+		if (hash ==='ua'){
 			Popup.show(2);
 		}
 	});
 
 	//Click events
 	$btnRus.click( function(){
-		$.cookie('lang', 'rus', { expires: 7 });
+		$.cookie('lang', 'ru', { expires: 7 });
 	});
 	$btnUkr.click( function(){
-		$.cookie('lang', 'ukr', { expires: 7 });
+		$.cookie('lang', 'ua', { expires: 7 });
 	});
 
 	//Birthday check
