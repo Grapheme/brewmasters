@@ -1,0 +1,56 @@
+html, body {
+	height: 100%;
+}
+
+html {
+	font: 16px 'Open Sans', sans-serif;
+	color: @clr-white;
+}
+
+.wrapper {
+	position: relative;
+	min-height: 100%;
+	padding: 0 120rem / @htmlFontSize;
+	background: url(../img/bg.jpg) no-repeat 0 0 e('/') cover;
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 50%;
+		height: 70%;
+
+		background: url(../img/hops.png) no-repeat right 0 e('/') auto 100%;
+	}
+
+	h1 {
+		margin: 0;
+	}
+
+	.desk {
+		position: relative;
+		left: -30rem / @htmlFontSize;
+		height: 404rem / @htmlFontSize;
+
+		max-width: 800rem / @htmlFontSize;
+		margin: 20rem / @htmlFontSize 0 0;
+		padding: 40rem / @htmlFontSize 40rem / @htmlFontSize 20rem / @htmlFontSize;
+
+		font-size: 14em / @htmlFontSize;
+		background: url(../img/border.png) no-repeat 0  e('/') 100% 100%;
+	}
+
+	.section {	
+		margin: 0 0 90rem / @htmlFontSize;
+
+		font-size: 14em / @htmlFontSize;
+		line-height: 19.41 / 14;
+
+		h2 {
+			margin: 60rem / @htmlFontSize 0 32rem / @htmlFontSize;
+		}
+	}
+	
+}
+

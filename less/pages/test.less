@@ -1,0 +1,26 @@
+.test {
+	max-width: 546rem / @htmlFontSize;
+	padding: 0 0 0 14rem / @htmlFontSize;
+
+	.test-ul {
+		.list-unstyled;
+		margin: 0 0 42rem / @htmlFontSize;
+	}
+
+	.test-li {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+		p {
+			margin: 20rem / @htmlFontSize 0;
+		}
+		dt {
+			font-weight: 600;
+		}
+		dd {
+			margin: 0 0 20rem / @htmlFontSize;
+		}
+	}
+}

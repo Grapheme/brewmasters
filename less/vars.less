@@ -1,0 +1,46 @@
+@htmlFontSize: 16;
+@footerHeight: 142rem / @htmlFontSize;
+
+.transition(@elem: all, @duration: .5s, @effect: ease) {
+	-webkit-transition: @elem @duration @effect;
+	transition: @elem @duration @effect;
+}
+
+.transform(@type) {
+	-webkit-transform: @type;
+	transform: @type;
+}
+
+.box-sizing(@val: border-box) {
+	-webkit-box-sizing: @val;
+	-moz-box-sizing: @val;
+	box-sizing: @val;
+}
+
+.list-unstyled {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+* {
+	.box-sizing;
+}
+
+a {
+	.transition;
+	color: inherit;
+	text-decoration: none;
+	outline: none;
+	border-bottom: 1px solid;
+
+	&:hover {
+		border-color: transparent;
+	}
+}
+
+//Colors
+@clr-white: #fff;
+@clr-brown: #39251A;
+@clr-gray: #acacac;
+@clr-black: #000;

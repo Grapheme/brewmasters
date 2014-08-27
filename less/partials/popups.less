@@ -1,0 +1,37 @@
+.overlay {
+	.transition;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+	&.active {
+		opacity: 1;
+		z-index: 100;
+	}
+
+	background: rgba(0, 0, 0, .8);
+
+	.popup {
+		.transition;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		width: 588rem / @htmlFontSize;
+		height: 285rem / @htmlFontSize;
+
+		margin: -285rem / 2 / @htmlFontSize 0 0 -588rem / 2 / @htmlFontSize;
+
+		background: #fff;
+		color: @clr-black;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+}

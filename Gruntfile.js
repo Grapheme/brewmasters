@@ -4,6 +4,7 @@ module.exports = function(grunt) {
       dist: {
         // the files to concatenate
         src: [
+          'js/vendor/jquery.cookie.js',
           'js/main.js',
           'js/plugins.js'
         ],
