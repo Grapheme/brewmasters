@@ -80,6 +80,12 @@ var Popup = (function(){
 	var $popup = $('.popup');
 	var $btnRus = $('.js-button-rus');
 	var $btnUkr = $('.js-button-ukr');
+	var $btnAge = $('.js-button-age');
+
+	function checkAge(birthDate, minAge) {
+		var tempDate = new Date(birthDate);
+		return (tempDate <= new Date());
+	}
 
 	//Check hash onload
 	$(function(){
@@ -101,11 +107,31 @@ var Popup = (function(){
 		$.cookie('lang', 'ukr', { expires: 7 });
 	});
 
+	//Birthday check
+	$btnAge.click( function(e){
+		e.preventDefault();
+		var minAge = 18;
+		var day = +$('.select-day').find('option:selected').val();
+		var month = +$('.select-month').find('option:selected').val();
+		var year = +$('.select-year').find('option:selected').val();
+		var date = new Date(year + 18, month, day);
+
+		if ( checkAge(date) ) {
+			Popup.close();
+		} else {
+			Popup.show(4);
+			setTimeout( function(){
+				window.location.href = 'http://psychomedia.org/articles/1170';
+			}, 5000);
+		}
+	});
+
 
 	return {
 
 		show: function(id){
 			$overlay.addClass('active');
+			$popup.removeClass('active');
 			$('[data-popup="' + id + '"]').addClass('active');
 		},
 

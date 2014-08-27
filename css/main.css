@@ -860,6 +860,7 @@ html {
 }
 .overlay .popup.active {
   opacity: 1;
+  z-index: 1;
 }
 .test {
   max-width: 34.125rem;
