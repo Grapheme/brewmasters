@@ -193,6 +193,24 @@ jQuery.fn.testExam = function(obj) {
 
 };
 
+var Reg = (function(){
+	var step1 = $('.reg-step-1');
+	var step2 = $('.reg-step-2');
+
+	step1.find('.spec').click( function(){
+		$.cookie('job', $(this).data('jobtype'), { expires: 7 });
+		step1.hide();
+		step2.show();
+	});
+
+	return {
+		init: function(){
+
+		}
+	};
+
+})();
+
 var Popup = (function(){
 	var $overlay = $('.overlay');
 	var $popup = $('.popup');
@@ -220,9 +238,11 @@ var Popup = (function(){
 	//Click events
 	$btnRus.click( function(){
 		$.cookie('lang', 'ru', { expires: 7 });
+		Popup.show(3);
 	});
 	$btnUkr.click( function(){
 		$.cookie('lang', 'ua', { expires: 7 });
+		Popup.show(3);
 	});
 
 	//Birthday check
@@ -236,11 +256,9 @@ var Popup = (function(){
 
 		if ( checkAge(date) ) {
 			Popup.close();
+			window.location.href = 'registration.html';
 		} else {
 			Popup.show(4);
-			setTimeout( function(){
-				window.location.href = 'http://psychomedia.org/articles/1170';
-			}, 5000);
 		}
 	});
 
