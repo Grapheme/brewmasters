@@ -45,6 +45,10 @@
             <main>
                 <section class="reg-form">
                     <h2>Регистрация</h2>
+                    <p>
+                        Спасибо за успешную регистрацию. Теперь вы
+                        можете начать обучание
+                    </p>
                     <form>
                         <input type="hidden" class="input-jobtype">
                         <fieldset class="reg-step-1">
@@ -75,24 +79,28 @@
                         <fieldset class="reg-step-2" style="display: none;">
                             <div class="row clearfix">
                                 <div class="column full">
-                                    <input type="text" placeholder="ФИО">
+                                    <input type="text" class="error" placeholder="ФИО">
                                     <div class="input-line"></div>
+                                    <div class="error-text">поле не заполнено</div>
                                 </div>                            
                             </div>
                             <div class="row clearfix">
                                 <div class="column two-thirds">
                                     <input type="text" placeholder="Место работы">
                                     <div class="input-line"></div>
+                                    <div class="error-text">поле не заполнено</div>
                                 </div>
                                 <div class="column third">
                                     <input type="text" placeholder="Код">
                                     <div class="input-line"></div>
+                                    <div class="error-text">поле не заполнено</div>
                                 </div>
                             </div>
                             <div class="row clearfix">
                                 <div class="column full">
                                     <input type="text" placeholder="Город">
                                     <div class="input-line"></div>
+                                    <div class="error-text">поле не заполнено</div>
                                 </div>                            
                             </div>
                             <button class="btn btn--bordered">
