@@ -909,15 +909,15 @@ html {
 .auth-form fieldset {
   position: relative;
 }
-.auth-form .error .error-text {
+.auth-form input.error {
+  color: #c03b3b;
+}
+.auth-form input.error + .input-line {
+  background-image: url(../img/line-red.png);
+}
+.auth-form input.error + .input-line + .error-text {
   opacity: 1;
   color: #c03b3b;
-}
-.auth-form .error input {
-  color: #c03b3b;
-}
-.auth-form .error .input-line {
-  background-image: url(../img/line-red.png);
 }
 .auth-form .error-text {
   opacity: 0;
