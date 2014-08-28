@@ -544,6 +544,7 @@ textarea {
 .icon:before {
   font-family: "fontello";
   margin-right: .2em;
+  margin-left: .2em;
 }
 .icon-angle-left:before {
   content: '\e800';
@@ -1059,6 +1060,9 @@ html {
   max-width: 61.25rem;
   padding: 0 0 0 0.875rem;
 }
+.test .test-success {
+  max-width: 27rem;
+}
 .test .test-ul {
   padding: 0;
   margin: 0;
@@ -1138,10 +1142,23 @@ html {
 .cabinet {
   width: 27.1875rem;
 }
+.cabinet .show-sert {
+  margin: 1.75rem 0 0;
+}
 .cabinet .cabinet-user {
   position: relative;
   width: 27.1875rem;
   margin: 0 0 6.25rem;
+}
+.cabinet .cabinet-user.edit .btn {
+  display: block;
+}
+.cabinet .cabinet-user .btn {
+  display: none;
+}
+.cabinet .cabinet-user fieldset {
+  position: relative;
+  margin: 0 0 1.75rem;
 }
 .cabinet .cabinet-user label {
   display: inline-block;
@@ -1149,16 +1166,62 @@ html {
   margin: 0 0 1rem;
   color: #acacac;
 }
+.cabinet .cabinet-user .pass-link {
+  font-size: 1.125em;
+  text-transform: uppercase;
+}
+.cabinet .cabinet-user .pass label {
+  width: 11.875rem;
+}
+.cabinet .cabinet-user .pass input {
+  width: 9.375rem;
+}
+.cabinet .cabinet-user .pass .input-line {
+  width: 9.375rem;
+  left: 11.875rem;
+}
+.cabinet .cabinet-user .input-line {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 1;
+  position: absolute;
+  left: 5.625rem;
+  bottom: 0.25rem;
+  width: 15.625rem;
+  height: 0.75rem;
+  background: url(../img/line.png) repeat-x 0 0;
+}
+.cabinet .cabinet-user .input-error {
+  opacity: 0;
+  position: absolute;
+  bottom: -0.4rem;
+  right: 5.9rem;
+  color: #c03b3b;
+  font-size: 0.6875em;
+}
 .cabinet .cabinet-user input {
   width: 15.625rem;
   color: #fff;
   border: none;
   background: none;
 }
+.cabinet .cabinet-user input[disabled] + .input-line {
+  opacity: 0;
+}
+.cabinet .cabinet-user input.error {
+  color: #c03b3b;
+}
+.cabinet .cabinet-user input.error + .input-line {
+  background-image: url(../img/line-red.png);
+}
+.cabinet .cabinet-user input.error + .input-line + .input-error {
+  opacity: 1;
+}
 .cabinet .cabinet-user .btn--edit {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1;
   font-size: 1.5em;
   cursor: pointer;
 }

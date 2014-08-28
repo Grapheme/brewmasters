@@ -55,22 +55,44 @@
             <main>
                 <section class="section cabinet">
                     <h2>Личный кабинет</h2>
-                    <form class="cabinet-user">
-                        <div class="btn--edit">
+                    <form class="cabinet-user" autocomplete="off">
+                        <div class="btn--edit js-btn-edit">
                             <span class="icon icon-pencil"></span>
                         </div>
                         <fieldset>
                             <label>Фио</label>
                             <input type="text" value="Иванов Василий Петрович" disabled>
+                            <div class="input-line"></div>
+                            <div class="input-error">поле заполнено неправильно</div>
                         </fieldset>
                         <fieldset>
                             <label>Код точки</label>
                             <input type="text" value="945039940" disabled>
+                            <div class="input-line"></div>
+                            <div class="input-error">поле заполнено неправильно</div>
                         </fieldset>
-                        <fieldset>
-                            <label>Фио</label>
-                            <input type="text" value="ivan1234" disabled>
+                        <p class="pass-link">Сменить пароль</p>
+                        <fieldset class="pass">
+                            <label>Старый пароль</label>
+                            <input type="password" value="ivan1234" disabled>
+                            <div class="input-line"></div>
+                            <div class="input-error">поле заполнено неправильно</div>
                         </fieldset>
+                        <fieldset class="pass">
+                            <label>Новый пароль</label>
+                            <input type="password" value="ivan1234" disabled>
+                            <div class="input-line"></div>
+                            <div class="input-error">поле заполнено неправильно</div>
+                        </fieldset>
+                        <fieldset class="pass">
+                            <label>Повторите новый пароль</label>
+                            <input type="password" value="ivan1234" disabled>
+                            <div class="input-line"></div>
+                            <div class="input-error">поле заполнено неправильно</div>
+                        </fieldset>
+                        <button class="btn btn--bordered js-cab-save">
+                            Сохранить
+                        </button>
                     </form>
                     <div class="cabinet-exams">
                         <p>
@@ -107,6 +129,9 @@
                                 <div class="exam-line">&nbsp;</div>
                             </li>
                         </ul>
+                        <a href="#" class="show-sert btn btn--bordered">
+                            Посмотреть сертификат
+                        </a>
                     </div>
                 </section>
             </main>
