@@ -1014,8 +1014,10 @@ html {
   height: 12.5rem;
 }
 .overlay .popup.popup-auth {
+  width: 28.5625rem;
   height: auto;
   padding-bottom: 3.125rem;
+  margin-left: -14.28125rem;
 }
 .overlay .popup-head h3 {
   margin: 0 0 1.4375rem;
