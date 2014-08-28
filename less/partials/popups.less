@@ -24,6 +24,7 @@
 
 		width: 588rem / @htmlFontSize;
 		height: 285rem / @htmlFontSize;
+		padding: 50rem / @htmlFontSize 55rem / @htmlFontSize 0;
 
 		margin: -285rem / 2 / @htmlFontSize 0 0 -588rem / 2 / @htmlFontSize;
 
@@ -34,5 +35,40 @@
 			opacity: 1;
 			z-index: 1;
 		}
+
+		&.popup-age {
+			height: auto;
+
+			.popup-desc {
+				margin: 0 0 18rem / @htmlFontSize;
+			}
+
+			.btn {
+				margin: 45rem / @htmlFontSize 0 90rem / @htmlFontSize;
+			}
+		}
+
+		&.popup-restricted {
+			height: 200rem / @htmlFontSize;
+		}
 	}
+
+	.popup-head {
+		h3 {
+			margin: 0 0 23rem / @htmlFontSize;
+
+			font-size: 18em / @htmlFontSize;
+			line-height: .75;
+			text-transform: uppercase;
+		}
+		.popup-desc {
+			margin: 0 0 52rem / @htmlFontSize;
+			font-size: 14em / @htmlFontSize;
+
+			.coutry {
+				font-weight: 600;
+			}
+		}
+	}
+
 }

@@ -6,7 +6,9 @@ module.exports = function(grunt) {
         src: [
           'js/vendor/jquery.cookie.js',
           'js/main.js',
-          'js/plugins.js'
+          'js/plugins.js',
+          'js/vendor/jquery.selectBox.js',
+          'js/jquery.selectbox.init.js'
         ],
         // the location of the resulting JS file
         dest: 'js/index.js'

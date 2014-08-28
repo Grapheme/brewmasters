@@ -21,7 +21,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="wrapper">
+        <div class="wrapper logged-in">
 
             <header class="main-header clearfix">
                 <h1>
@@ -34,37 +34,81 @@
                             Регистрация
                         </a>
                     </div>
+                    <div class="cab">
+                        <a href="#" class="js-btn-signup">
+                            Личный кабинет
+                        </a>
+                    </div>
                     <div class="login">
                         <a href="#" class="btn btn--rounded js-btn-signin">
                             Войти
+                        </a>
+                    </div>
+                    <div class="logout">
+                        <a href="#" class="btn btn--rounded js-btn-signin">
+                            Выйти
                         </a>
                     </div>
                 </div>
             </header>
 
             <main>
-                <div class="desk">
-                    <div class="desk-cont">
+                <section class="section cabinet">
+                    <h2>Личный кабинет</h2>
+                    <form class="cabinet-user">
+                        <div class="btn--edit">
+                            <span class="icon icon-pencil"></span>
+                        </div>
+                        <fieldset>
+                            <label>Фио</label>
+                            <input type="text" value="Иванов Василий Петрович" disabled>
+                        </fieldset>
+                        <fieldset>
+                            <label>Код точки</label>
+                            <input type="text" value="945039940" disabled>
+                        </fieldset>
+                        <fieldset>
+                            <label>Фио</label>
+                            <input type="text" value="ivan1234" disabled>
+                        </fieldset>
+                    </form>
+                    <div class="cabinet-exams">
                         <p>
-                        Он был разработан специалистами крупнейшей в мире пивоваренной копании «Анхойзер-Буш ИнБев» при поддержке Барменской Ассоциации России. Пройдя тренинг, вы узнаете много интересного о пиве!
+                            Вы можете выбрать интересующий раздел и закрепить полученные в нем знания, пройдя тест после него
+                            и получив на нашем сайте соответствующий сертификат.
                         </p>
-                        <p>
-                            В разделе «о пиве» вы узнаете: историю пивоварения; ингредиенты напитка; этапы процесса пивоварения; различные стили пива и, наконец, мифы о пиве, которые мы спешим развеять!
-                        </p>
-                        <p>
-                            В разделе «пивная культура» мы расскажем вам о выборе бокала, процессе дегустации, сочетаниях еды и пива и познакомим с уникальной бельгийской традицией правильного
-                        налива пива.
-                        </p>
-                        <p>
-                            Раздел «оборудование» содержит информацию о холодильных установках и оборудовании
-                            для разлива пива.
-                        </p>
-                        <p>
-                            Последним и самым главным разделом является «ответственность», где приведены законодательные нормы об употреблении алкоголя, характеристики степеней опьянения,
-                            который должен знать каждый, и действия для оказания первой медицинской помощи.
-                        </p>
-                    </div>                    
-                </div>
+                        <ul class="exams-ul">
+                            <li class="exams-li clearfix">
+                                <a href="#">О пиве</a>                                
+                                <div class="exam-progress">
+                                    0%
+                                </div>
+                                <div class="exam-line">&nbsp;</div>
+                            </li>
+                            <li class="exams-li clearfix">
+                                <a href="#">Пивная культура</a>
+                                <div class="exam-progress">
+                                    0%
+                                </div>
+                                <div class="exam-line">&nbsp;</div>
+                            </li>
+                            <li class="exams-li clearfix">
+                                <a href="#">Оборудование</a>
+                                <div class="exam-progress">
+                                    0%
+                                </div>
+                                <div class="exam-line">&nbsp;</div>
+                            </li>
+                            <li class="exams-li clearfix">
+                                <a href="#">Ответственность</a>
+                                <div class="exam-progress">
+                                    0%
+                                </div>
+                                <div class="exam-line">&nbsp;</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
             </main>
             <div class="overlay">
                 <section class="popup popup-lang" data-popup="1">

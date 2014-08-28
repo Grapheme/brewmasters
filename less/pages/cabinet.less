@@ -1,0 +1,53 @@
+.cabinet {
+	width: 435rem / @htmlFontSize;
+
+	.cabinet-user {
+		position: relative;
+		width: 435rem / @htmlFontSize;
+		margin: 0 0 100rem / @htmlFontSize;
+
+		label {
+			display: inline-block;
+			width: 90rem / @htmlFontSize;
+			margin: 0 0 16rem / @htmlFontSize;
+
+			color: @clr-gray;
+		}
+		input {
+			width: 250rem / @htmlFontSize;
+			color: #fff;
+			border: none;
+			background: none;
+		}
+		.btn--edit {
+			position: absolute;
+			top: 0;
+			right: 0;
+			
+			font-size: 1.5em;
+			cursor: pointer;
+		}
+	}
+	.exams-ul {
+		.list-unstyled;
+		margin: 28rem / @htmlFontSize 0 0;
+	}
+	.exams-li {
+		margin: 0 0 12rem / @htmlFontSize;
+
+		a {
+			float: left;
+			margin: 0 6rem / @htmlFontSize 0 0;
+		}
+		.exam-progress {
+			float: right;
+			margin: 0 0 0 6rem / @htmlFontSize;
+		}
+		.exam-line {
+			overflow: hidden;
+			background: url(../img/dotted-line.png) repeat-x 0 bottom;
+		}
+
+	}
+
+}
