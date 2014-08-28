@@ -68,6 +68,7 @@
             </main>
             <div class="overlay">
                 <section class="popup popup-lang" data-popup="1">
+                    <div class="popup-close js-popup-close"><span class="icon icon-cancel"></span></div>
                     <header class="popup-head">
                         <h3>Местоположение</h3>
                         <div class="popup-desc">
@@ -80,6 +81,7 @@
                     </div>
                 </section>
                 <section class="popup popup-lang" data-popup="2">
+                    <div class="popup-close js-popup-close"><span class="icon icon-cancel"></span></div>
                     <header class="popup-head">
                         <h3>Местоположение</h3>
                         <div class="popup-desc">
@@ -92,6 +94,7 @@
                     </div>
                 </section>
                 <section class="popup popup-age" data-popup="3">
+                    <div class="popup-close js-popup-close"><span class="icon icon-cancel"></span></div>
                     <header class="popup-head">
                         <h3>Дата рождения</h3>
                         <div class="popup-desc">
@@ -127,12 +130,32 @@
                     </form>
                 </section>
                 <section class="popup popup-restricted" data-popup="4">
+                    <div class="popup-close js-popup-close"><span class="icon icon-cancel"></span></div>
                     <header class="popup-head">
                         <h3>Дата рождения</h3>
                         <div class="popup-desc">
                             К сожалению, вы не можете просматривать сайт
                         </div>
                     </header>
+                </section>
+                <section class="popup popup-auth" data-popup="5">
+                    <div class="popup-close js-popup-close"><span class="icon icon-cancel"></span></div>
+                    <header class="popup-head">
+                        <h3>Авторизуйтесь</h3>
+                    </header>                    
+                    <form class="auth-form">
+                        <fieldset>
+                            <input type="text" placeholder="Код точки">
+                            <div class="input-line"></div>
+                        </fieldset>
+                        <fieldset>
+                            <input type="text" placeholder="Пароль">
+                            <div class="input-line"></div>
+                        </fieldset>
+                        <button class="btn btn--bordered btn--dark">
+                            Войти
+                        </button>
+                    </form>
                 </section>
             </div>         
         </div>
@@ -159,10 +182,10 @@
                 </nav>
                 <ul class="sub-nav clearfix">
                     <li>
-                        <a href="http://fb.com/suninbev">fb.com/suninbev</a>
+                        <span class="icon icon-facebook-squared"></span> <a href="http://fb.com/suninbev">fb.com/suninbev</a>
                     </li>
                     <li>
-                        <a href="http://suninbev.ru">suninbev.ru</a>
+                        <span class="icon icon-eagle"></span> <a href="http://suninbev.ru">suninbev.ru</a>
                     </li>
                 </ul>
             </div>

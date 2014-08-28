@@ -36,6 +36,22 @@
 			z-index: 1;
 		}
 
+		.popup-close {
+			.transition;
+			opacity: .55;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+
+			font-size: 1.5rem;
+			line-height: .75;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
 		&.popup-age {
 			height: auto;
 
@@ -44,12 +60,17 @@
 			}
 
 			.btn {
-				margin: 45rem / @htmlFontSize 0 90rem / @htmlFontSize;
+				margin: 45rem / @htmlFontSize 0 50rem / @htmlFontSize;
 			}
 		}
 
 		&.popup-restricted {
 			height: 200rem / @htmlFontSize;
+		}
+
+		&.popup-auth {
+			height: auto;
+			padding-bottom: 50rem / @htmlFontSize;
 		}
 	}
 

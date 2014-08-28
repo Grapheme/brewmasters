@@ -100,6 +100,7 @@ var Popup = (function(){
 	var $btnRus = $('.js-button-ru');
 	var $btnUkr = $('.js-button-ua');
 	var $btnAge = $('.js-button-age');
+	var $close = $('.js-popup-close');
 
 	function checkAge(birthDate, minAge) {
 		var tempDate = new Date(birthDate);
@@ -126,6 +127,9 @@ var Popup = (function(){
 	$btnUkr.click( function(){
 		$.cookie('lang', 'ua', { expires: 7 });
 		Popup.show(3);
+	});
+	$close.click( function(){
+		Popup.close();
 	});
 
 	//Birthday check
