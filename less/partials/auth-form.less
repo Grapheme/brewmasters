@@ -4,10 +4,30 @@
 	fieldset {
 		position: relative;
 	}
+	.error {
+		.error-text {
+			opacity: 1;
+			color: @clr-red;
+		}
+		input {
+			color: @clr-red;
+		}
+		.input-line {
+			background-image: url(../img/line-red.png);
+		}
+	}
+	.error-text {
+		opacity: 0;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		font-size: 11em / @htmlFontSize;
+	}
 	input {
 		display: inline-block;
 		width: 100%;
 		height: 42rem / @htmlFontSize;
+		margin: 30rem / @htmlFontSize 0 0;
 		padding: 0 9rem / @htmlFontSize;
 		border: none;
 

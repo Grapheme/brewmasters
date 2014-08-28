@@ -75,6 +75,14 @@ jQuery.fn.testExam = function(obj) {
 
 };
 
+var App = (function(){
+	var $btnLog = $('.js-btn-signin');
+
+	$btnLog.click( function(){
+		Popup.show(5);
+	});
+})();
+
 var Reg = (function(){
 	var step1 = $('.reg-step-1');
 	var step2 = $('.reg-step-2');

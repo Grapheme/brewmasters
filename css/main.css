@@ -909,10 +909,28 @@ html {
 .auth-form fieldset {
   position: relative;
 }
+.auth-form .error .error-text {
+  opacity: 1;
+  color: #c03b3b;
+}
+.auth-form .error input {
+  color: #c03b3b;
+}
+.auth-form .error .input-line {
+  background-image: url(../img/line-red.png);
+}
+.auth-form .error-text {
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  font-size: 0.6875em;
+}
 .auth-form input {
   display: inline-block;
   width: 100%;
   height: 2.625rem;
+  margin: 1.875rem 0 0;
   padding: 0 0.5625rem;
   border: none;
   color: #39251a;
