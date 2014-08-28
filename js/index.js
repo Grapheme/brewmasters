@@ -257,6 +257,7 @@ var Popup = (function(){
 
 		if ( checkAge(date) ) {
 			Popup.close();
+			$.cookie('age', '1', { expires: 7 });
 			window.location.href = 'registration.html';
 		} else {
 			Popup.show(4);
