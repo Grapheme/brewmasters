@@ -203,7 +203,7 @@ var App = (function(){
 		$cabForm.addClass('edit');
 		$(this).parent().find('input').removeAttr('disabled');
 	});
-	$js-cab-save.click( function(){
+	$cabSave.click( function(){
 		$cabForm.removeClass('edit').find('input').addAttr('disabled');
 	});
 
@@ -281,7 +281,7 @@ var Popup = (function(){
 		if ( checkAge(date) ) {
 			Popup.close();
 			$.cookie('age', '1', { expires: 7 });
-			window.location.href = 'registration.html';
+			window.location.href = 'registration';
 		} else {
 			$.cookie('age', '0', { expires: 7 });
 			Popup.show(4);
