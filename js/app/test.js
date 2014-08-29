@@ -75,6 +75,7 @@ jQuery.fn.testTheory = function(obj) {
 		var count = slides.length;
 		var testId = slides.parent().data('test');
 		var questNewId = slides.filter('.active').data('question');
+		var action = slides.parent().data('action');
 
 		//Здесь мы обновляем глобальный счетчик текущего вопроса
 
@@ -84,7 +85,7 @@ jQuery.fn.testTheory = function(obj) {
 
 		$testProgress.html(persent);
 
-		$.post("test.php", {
+		$.post(action , {
 			testId: testId,
 			questId: questionId,
 			testProgress: persent
