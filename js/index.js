@@ -225,16 +225,19 @@ var Reg = (function(){
 	};
 
 })();
-jQuery.fn.testTheory = function(obj) {
+jQuery.fn.testTheory = function() {
 	var element = $(this),
 		$arrowLeft = $(this).find('.js-arrow-left'),
 		$arrowRight = $(this).find('.js-arrow-right'),
 		$btnFinish = $(this).find('.js-arrow-finish'),
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
-		activeSlide = 0,
+		activeSlide = $('.test-ul').data('question') - 1 || 0,
 		questionId = 1,
-		persent = 0;
+		persent = $('.test-ul').data('progress') || 0;
+
+		console.log(persent);
+		console.log(activeSlide);
 
 
 	$arrowLeft.click( function(){
@@ -347,6 +350,8 @@ jQuery.fn.testTheory = function(obj) {
 				questId: questionId,
 				testProgress: persent
 			});
+		} else {
+			$testProgress.html(persent + ' %');
 		}
 	});
 
@@ -367,7 +372,8 @@ jQuery.fn.testTheory = function(obj) {
 	//Show first slide at the beginning
 	element.trigger('step.show', activeSlide);
 	element.trigger('progress.calculate');
-	$arrowLeft.addClass('disabled');
+
+	if(activeSlide === 0) $arrowLeft.addClass('disabled');
 };
 
 $('.test').testTheory();
