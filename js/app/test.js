@@ -2,6 +2,7 @@ jQuery.fn.testTheory = function(obj) {
 	var element = $(this),
 		$arrowLeft = $(this).find('.js-arrow-left'),
 		$arrowRight = $(this).find('.js-arrow-right'),
+		$btnFinish = $(this).find('.js-arrow-finish'),
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
 		activeSlide = 0,
@@ -20,6 +21,9 @@ jQuery.fn.testTheory = function(obj) {
 		var currentSlide = activeSlide + 1;
 
 		if( currentSlide === 1 ) $(this).addClass('disabled');
+
+		//Check if last slide
+		element.trigger('check.last');
 	});
 
 	$arrowRight.click( function(){
@@ -36,6 +40,19 @@ jQuery.fn.testTheory = function(obj) {
 		var slidesLength = slides.length;
 
 		if( currentSlide === slidesLength ) $(this).addClass('disabled');
+
+		//Check if last slide
+		element.trigger('check.last');
+	});
+
+	element.bind('check.last', function(e){
+		if ( slides.filter('.active').data('question') === 'finish' ) {
+			$btnFinish.addClass('active');
+			$arrowRight.hide();
+		} else {
+			$btnFinish.removeClass('active');
+			$arrowRight.show();
+		}
 	});
 
 	//Slider events
@@ -67,6 +84,11 @@ jQuery.fn.testTheory = function(obj) {
 		}
 
 		slides.eq(nextIndex).addClass('active');
+
+		// Disable button if exam
+		if ( slides.eq(nextIndex).hasClass('exam-li') ) {
+			$arrowRight.addClass('disabled');
+		}
 	});
 
 	//Method calculate progress
@@ -96,6 +118,14 @@ jQuery.fn.testTheory = function(obj) {
 	element.bind('step.show', function(e, num){
 		slides.filter('.active').removeClass('active');
 		slides.eq(num).addClass('active');
+	});
+
+	$('.answ-opt').click( function(){
+		$(this).addClass('js-selected');
+		if ( $(this).hasClass('success') ) {
+			$(this).parent().children().unbind();
+			$arrowRight.removeClass('disabled');
+		}
 	});
 
 	//Show first slide at the beginning

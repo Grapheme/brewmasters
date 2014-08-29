@@ -38,6 +38,14 @@
 		}
 	}
 
+	.btn-finish {
+		display: none;
+
+		&.active {
+			display: inline-block;
+		}
+	}
+
 	.test-li {
 		display: none;
 
@@ -61,5 +69,19 @@
 		margin: 1.25rem 0;
 
 		background: no-repeat 0 0 e('/') cover;
+	}
+
+	.test-controls {
+		max-width: 40rem;
+
+		.test-progress {
+			text-align: center;
+		}
+		.btn-prev {
+			float: left;
+		}
+		.btn-next {
+			float: right;
+		}
 	}
 }
