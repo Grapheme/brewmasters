@@ -11,6 +11,33 @@
 		margin: 0 0 42rem / @htmlFontSize;
 	}
 
+	.btn.btn--bordered {
+
+		&.disabled {
+			.transition(none);
+			opacity: .2;
+			cursor: default;
+			color: rgba(255, 255, 255, 0.55);
+
+			&:after {
+				opacity: .55;
+			}
+
+			&:hover {
+				opacity: .2;
+				color: rgba(255, 255, 255, 0.55);
+
+				&:after {
+					opacity: .55;
+				}
+			}
+
+			&:active {
+				top: 0;
+			}
+		}
+	}
+
 	.test-li {
 		display: none;
 

@@ -794,67 +794,6 @@ html {
   float: left;
   margin: 0 3.125rem 0 0;
 }
-.btn {
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 1.4375rem;
-  outline: none;
-  cursor: pointer;
-}
-.btn.btn--rounded {
-  height: 2.0625rem;
-  line-height: 1.875rem;
-  border: 1px solid;
-  border-radius: 1.5rem;
-}
-.btn.btn--rounded:hover {
-  background: #ffffff;
-  color: #39251a;
-}
-.btn.disabled {
-  cursor: default;
-}
-.btn.btn--bordered {
-  position: relative;
-  height: 3.75rem;
-  padding: 0 2rem;
-  border: none;
-  line-height: 3.75rem;
-  text-transform: uppercase;
-  background: none;
-  color: #fff;
-  color: rgba(255, 255, 255, 0.55);
-}
-.btn.btn--bordered:hover {
-  color: #ffffff;
-}
-.btn.btn--bordered:hover:after {
-  opacity: 1;
-}
-.btn.btn--bordered.btn--dark {
-  color: #000;
-}
-.btn.btn--bordered.btn--dark:after {
-  background-image: url(../img/button-dark.png);
-}
-.btn.btn--bordered:after {
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  content: '';
-  opacity: .55;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(../img/button.png) no-repeat 0 0 / 100% 100%;
-}
-.btn.btn--bordered:active {
-  position: relative;
-  top: 2px;
-}
 .reg-form {
   margin: 0 0 5.625rem;
 }
@@ -1122,6 +1061,26 @@ html {
   list-style: none;
   margin: 0 0 2.625rem;
 }
+.test .btn.btn--bordered.disabled {
+  -webkit-transition: none 0.5s ease;
+  transition: none 0.5s ease;
+  opacity: .2;
+  cursor: default;
+  color: rgba(255, 255, 255, 0.55);
+}
+.test .btn.btn--bordered.disabled:after {
+  opacity: .55;
+}
+.test .btn.btn--bordered.disabled:hover {
+  opacity: .2;
+  color: rgba(255, 255, 255, 0.55);
+}
+.test .btn.btn--bordered.disabled:hover:after {
+  opacity: .55;
+}
+.test .btn.btn--bordered.disabled:active {
+  top: 0;
+}
 .test .test-li {
   display: none;
 }
@@ -1298,6 +1257,67 @@ html {
 .cabinet .exams-li .exam-line {
   overflow: hidden;
   background: url(../img/dotted-line.png) repeat-x 0 bottom;
+}
+.btn {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 1.4375rem;
+  outline: none;
+  cursor: pointer;
+}
+.btn.btn--rounded {
+  height: 2.0625rem;
+  line-height: 1.875rem;
+  border: 1px solid;
+  border-radius: 1.5rem;
+}
+.btn.btn--rounded:hover {
+  background: #ffffff;
+  color: #39251a;
+}
+.btn.disabled {
+  cursor: default;
+}
+.btn.btn--bordered {
+  position: relative;
+  height: 3.75rem;
+  padding: 0 2rem;
+  border: none;
+  line-height: 3.75rem;
+  text-transform: uppercase;
+  background: none;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.55);
+}
+.btn.btn--bordered:hover {
+  color: #ffffff;
+}
+.btn.btn--bordered:hover:after {
+  opacity: 1;
+}
+.btn.btn--bordered.btn--dark {
+  color: #000;
+}
+.btn.btn--bordered.btn--dark:after {
+  background-image: url(../img/button-dark.png);
+}
+.btn.btn--bordered:after {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  content: '';
+  opacity: .55;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/button.png) no-repeat 0 0 / 100% 100%;
+}
+.btn.btn--bordered:active {
+  position: relative;
+  top: 2px;
 }
 /* Dropdown control */
 .selectBox-dropdown {
