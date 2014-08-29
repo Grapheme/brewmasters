@@ -12,6 +12,28 @@ jQuery.fn.testTheory = function() {
 		console.log(persent);
 		console.log(activeSlide);
 
+	//knob
+
+	$(".dial").knob({
+		width: 100,
+		font: 'Open Sans',
+		thickness: '.2',
+		bgColor: 'rgba(172, 172, 172, .5)',
+		fgColor: '#fff',
+		draw : function () {
+			$(this.i).val(this.cv + '%');
+		},
+		readOnly: true
+	});
+	function animKnob(persent) {
+		$(".dial").animate({animatedVal: persent}, {
+			duration: 800,
+			easing: "swing",
+			step: function() {
+				$(".dial").val(Math.ceil(this.animatedVal)).trigger("change");
+			}
+		});
+	}
 
 	$arrowLeft.click( function(){
 		if( $(this).hasClass('disabled') ) return;
@@ -116,7 +138,6 @@ jQuery.fn.testTheory = function() {
 		if (persent < persentNew) {
 
 			persent = persentNew;
-			$testProgress.html(persent + ' %');
 
 				$.post(action , {
 				testId: testId,
@@ -124,8 +145,8 @@ jQuery.fn.testTheory = function() {
 				testProgress: persent
 			});
 		} else {
-			$testProgress.html(persent + ' %');
 		}
+		animKnob(persent);
 	});
 
 	//Method show

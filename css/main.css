@@ -1058,6 +1058,9 @@ html {
 .test .test-success {
   max-width: 27rem;
 }
+.test .dial {
+  position: absolute;
+}
 .test .test-ul {
   padding: 0;
   margin: 0;
@@ -1122,6 +1125,9 @@ html {
 }
 .test .test-controls .btn-next {
   float: right;
+}
+.test .test-controls .btn {
+  margin-top: 1.25rem;
 }
 .exam {
   max-width: 36.5rem;
