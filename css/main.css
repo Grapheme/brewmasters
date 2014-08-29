@@ -1052,6 +1052,9 @@ html {
   max-width: 61.25rem;
   padding: 0 0 0 0.875rem;
 }
+.test .test-li[data-question="finish"] p {
+  margin-bottom: 15rem;
+}
 .test .test-success {
   max-width: 27rem;
 }

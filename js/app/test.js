@@ -6,7 +6,8 @@ jQuery.fn.testTheory = function(obj) {
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
 		activeSlide = 0,
-		questionId = 1;
+		questionId = 1,
+		persent = 0;
 
 
 	$arrowLeft.click( function(){
@@ -45,16 +46,6 @@ jQuery.fn.testTheory = function(obj) {
 		element.trigger('check.last');
 	});
 
-	element.bind('check.last', function(e){
-		if ( slides.filter('.active').data('question') === 'finish' ) {
-			$btnFinish.addClass('active');
-			$arrowRight.hide();
-		} else {
-			$btnFinish.removeClass('active');
-			$arrowRight.show();
-		}
-	});
-
 	//Slider events
 	//Previous slide
 	element.bind('step.prev', function(e){
@@ -69,6 +60,18 @@ jQuery.fn.testTheory = function(obj) {
 		}
 
 		slides.eq(prevIndex).addClass('active');
+	});
+
+	//Show link to cabinet if slide is last
+	//And hide if we back
+	element.bind('check.last', function(e){
+		if ( slides.filter('.active').data('question') === 'finish' ) {
+			$btnFinish.addClass('active');
+			$arrowRight.hide();
+		} else {
+			$btnFinish.removeClass('active');
+			$arrowRight.show();
+		}
 	});
 
 	//Next slider
@@ -86,7 +89,7 @@ jQuery.fn.testTheory = function(obj) {
 		slides.eq(nextIndex).addClass('active');
 
 		// Disable button if exam
-		if ( slides.eq(nextIndex).hasClass('exam-li') ) {
+		if ( slides.eq(nextIndex).hasClass('exam-li') && !slides.eq(nextIndex).find('.js-selected').hasClass('success') ) {
 			$arrowRight.addClass('disabled');
 		}
 	});
@@ -103,15 +106,21 @@ jQuery.fn.testTheory = function(obj) {
 
 		if (questionId < questNewId) questionId = questNewId;
 
-		var persent = Math.floor(current * 100 / count) + ' %';
+		var persentNew = Math.floor(current * 100 / count);
 
-		$testProgress.html(persent);
 
-		$.post(action , {
-			testId: testId,
-			questId: questionId,
-			testProgress: persent
-		});
+		//Заполняем глобальную переменую прогресса
+		if (persent < persentNew) {
+
+			persent = persentNew;
+			$testProgress.html(persent + ' %');
+
+				$.post(action , {
+				testId: testId,
+				questId: questionId,
+				testProgress: persent
+			});
+		}
 	});
 
 	//Method show
