@@ -1,5 +1,4 @@
 .reg-form {
-	max-width: 380rem / @htmlFontSize;
 	margin: 0 0 90rem / @htmlFontSize;
 
 	form {
@@ -16,6 +15,75 @@
 
 	.row {
 		margin: 0 0 28rem / @htmlFontSize;
+	}
+
+	.reg-step-2 {		
+		max-width: 380rem / @htmlFontSize;
+	}
+
+	.reg-step-1 {
+
+		.spec {
+			position: relative;
+			float: left;
+			width: 288rem / @htmlFontSize;
+			height: 260rem / @htmlFontSize;
+			margin: 0 80rem / @htmlFontSize 0 0;
+			padding: 40rem / @htmlFontSize 28rem / @htmlFontSize;
+
+			background: url("../img/border-small.png") no-repeat 0 0 e('/') 100% 100%;
+
+			cursor: pointer;
+
+			&:hover {
+
+				&:before {
+					top: -20rem / @htmlFontSize;
+					right: -20rem / @htmlFontSize;
+					bottom: -20rem / @htmlFontSize;
+					left: -20rem / @htmlFontSize;
+
+					opacity: 1;
+				}
+			}
+
+			&:before {
+				.transition;
+				opacity: 0;
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+
+				background: url("../img/border-small-hover.png") no-repeat 0 0 e('/') 100% 100%;
+			}
+
+			&:last-child {
+				margin: 0;
+			}
+
+			h4 {
+				margin: 0 0 14rem / @htmlFontSize;
+
+				font-size: 19em / @htmlFontSize;
+				line-height: 26em / 19;
+				font-weight: 600;
+			}
+			ul {
+				.list-unstyled;
+			}
+			li {
+				font-size: 14em / @htmlFontSize;
+				line-height: 26em / 14;
+
+				&:before {
+					content: '–';
+					margin: 0 8rem / @htmlFontSize;
+				}
+			}
+		}
 	}
 
 	.column {

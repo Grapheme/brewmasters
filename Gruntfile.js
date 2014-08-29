@@ -5,6 +5,11 @@ module.exports = function(grunt) {
         // the files to concatenate
         src: [
           'js/vendor/jquery.cookie.js',
+          'js/app/app.js',
+          'js/app/exam.js',
+          'js/app/popup.js',
+          'js/app/reg.js',
+          'js/app/test.js',
           'js/main.js',
           'js/plugins.js',
           'js/vendor/jquery.selectBox.js',

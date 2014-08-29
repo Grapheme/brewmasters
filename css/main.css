@@ -856,7 +856,6 @@ html {
   top: 2px;
 }
 .reg-form {
-  max-width: 23.75rem;
   margin: 0 0 5.625rem;
 }
 .reg-form form {
@@ -870,6 +869,60 @@ html {
 }
 .reg-form .row {
   margin: 0 0 1.75rem;
+}
+.reg-form .reg-step-2 {
+  max-width: 23.75rem;
+}
+.reg-form .reg-step-1 .spec {
+  position: relative;
+  float: left;
+  width: 18rem;
+  height: 16.25rem;
+  margin: 0 5rem 0 0;
+  padding: 2.5rem 1.75rem;
+  background: url("../img/border-small.png") no-repeat 0 0 / 100% 100%;
+  cursor: pointer;
+}
+.reg-form .reg-step-1 .spec:hover:before {
+  top: -1.25rem;
+  right: -1.25rem;
+  bottom: -1.25rem;
+  left: -1.25rem;
+  opacity: 1;
+}
+.reg-form .reg-step-1 .spec:before {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../img/border-small-hover.png") no-repeat 0 0 / 100% 100%;
+}
+.reg-form .reg-step-1 .spec:last-child {
+  margin: 0;
+}
+.reg-form .reg-step-1 .spec h4 {
+  margin: 0 0 0.875rem;
+  font-size: 1.1875em;
+  line-height: 1.36842105em;
+  font-weight: 600;
+}
+.reg-form .reg-step-1 .spec ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.reg-form .reg-step-1 .spec li {
+  font-size: 0.875em;
+  line-height: 1.85714286em;
+}
+.reg-form .reg-step-1 .spec li:before {
+  content: '–';
+  margin: 0 0.5rem;
 }
 .reg-form .column {
   position: relative;

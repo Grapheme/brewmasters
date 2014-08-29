@@ -116,83 +116,6 @@
 
 }));
 
-jQuery.fn.testTheory = function(obj) {
-	var element = $(this),
-		$arrowLeft = $(this).find('.js-arrow-left');
-		$arrowRight = $(this).find('.js-arrow-right');
-		$testProgress = $(this).find('.js-test-progress');
-		slides = $(this).find('.test-li');
-		activeSlide = 0;
-
-
-	$arrowLeft.click( function(){
-		element.trigger('step.prev');
-	});
-
-	$arrowRight.click( function(){
-		element.trigger('step.next');
-		element.trigger('progress.calculate');
-	});
-
-	//Slider events
-	//Previous slide
-	element.bind('step.prev', function(e){
-		var prevIndex = 0;
-
-		slides.filter('.active').removeClass('active');
-
-		if( activeSlide > 0 ) {
-			prevIndex = --activeSlide;
-		} else {
-			prevIndex = activeSlide = slides.length - 1;
-		}
-
-		slides.eq(prevIndex).addClass('active');
-	});
-
-	//Next slider
-	element.bind('step.next', function(e){
-		var nextIndex = 0;
-
-		slides.filter('.active').removeClass('active');
-
-		if( activeSlide < (slides.length - 1) ) {
-			nextIndex = ++activeSlide;
-		} else {
-			nextIndex = activeSlide = 0;
-		}
-
-		slides.eq(nextIndex).addClass('active');
-	});
-
-	//Method calculate progress
-	element.bind('progress.calculate', function(e){
-		var current = slides.filter('.active').index() + 1;
-		var count = slides.length;
-
-		console.log(current);
-		console.log(count);
-
-		var persent = Math.floor(current * 100 / count) + ' %';
-
-		$testProgress.html(persent);
-	});
-
-	//Method show
-	element.bind('step.show', function(e, num){
-		slides.filter('.active').removeClass('active');
-		slides.eq(num).addClass('active');
-	});
-
-	//Show first slide at the beginning
-	element.trigger('step.show', activeSlide);
-	element.trigger('progress.calculate');
-};
-
-jQuery.fn.testExam = function(obj) {
-
-};
-
 var App = (function(){
 	var $btnLog = $('.js-btn-signin');
 	var $btnCab = $('.js-btn-edit');
@@ -211,26 +134,9 @@ var App = (function(){
 		Popup.show(5);
 	});
 })();
+jQuery.fn.testExam = function(obj) {
 
-var Reg = (function(){
-	var step1 = $('.reg-step-1');
-	var step2 = $('.reg-step-2');
-	var inputJob = $('.input-jobtype');
-
-	step1.find('.spec').click( function(){
-		inputJob.val($(this).data('jobtype'));
-		step1.hide();
-		step2.show();
-	});
-
-	return {
-		init: function(){
-
-		}
-	};
-
-})();
-
+};
 var Popup = (function(){
 	var $overlay = $('.overlay');
 	var $popup = $('.popup');
@@ -305,9 +211,98 @@ var Popup = (function(){
 	};
 
 })();
+var Reg = (function(){
+	var step1 = $('.reg-step-1');
+	var step2 = $('.reg-step-2');
+	var inputJob = $('.input-jobtype');
+
+	step1.find('.spec').click( function(){
+		inputJob.val($(this).data('jobtype'));
+		step1.hide();
+		step2.show();
+	});
+
+	return {
+		init: function(){
+
+		}
+	};
+
+})();
+jQuery.fn.testTheory = function(obj) {
+	var element = $(this),
+		$arrowLeft = $(this).find('.js-arrow-left');
+		$arrowRight = $(this).find('.js-arrow-right');
+		$testProgress = $(this).find('.js-test-progress');
+		slides = $(this).find('.test-li');
+		activeSlide = 0;
+
+
+	$arrowLeft.click( function(){
+		element.trigger('step.prev');
+	});
+
+	$arrowRight.click( function(){
+		element.trigger('step.next');
+		element.trigger('progress.calculate');
+	});
+
+	//Slider events
+	//Previous slide
+	element.bind('step.prev', function(e){
+		var prevIndex = 0;
+
+		slides.filter('.active').removeClass('active');
+
+		if( activeSlide > 0 ) {
+			prevIndex = --activeSlide;
+		} else {
+			prevIndex = activeSlide = slides.length - 1;
+		}
+
+		slides.eq(prevIndex).addClass('active');
+	});
+
+	//Next slider
+	element.bind('step.next', function(e){
+		var nextIndex = 0;
+
+		slides.filter('.active').removeClass('active');
+
+		if( activeSlide < (slides.length - 1) ) {
+			nextIndex = ++activeSlide;
+		} else {
+			nextIndex = activeSlide = 0;
+		}
+
+		slides.eq(nextIndex).addClass('active');
+	});
+
+	//Method calculate progress
+	element.bind('progress.calculate', function(e){
+		var current = slides.filter('.active').index() + 1;
+		var count = slides.length;
+
+		console.log(current);
+		console.log(count);
+
+		var persent = Math.floor(current * 100 / count) + ' %';
+
+		$testProgress.html(persent);
+	});
+
+	//Method show
+	element.bind('step.show', function(e, num){
+		slides.filter('.active').removeClass('active');
+		slides.eq(num).addClass('active');
+	});
+
+	//Show first slide at the beginning
+	element.trigger('step.show', activeSlide);
+	element.trigger('progress.calculate');
+};
 
 $('.test').testTheory();
-
 $('.answ-opt').click( function(){
 	$(this).addClass('js-selected');
 });
