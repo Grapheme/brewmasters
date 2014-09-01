@@ -967,7 +967,7 @@ var Popup = (function(){
 	});
 	$btnUkr.click( function(){
 		$.cookie('lang', 'ua', { expires: 7 });
-		Popup.show(3);
+		Popup.show(6);
 	});
 	$close.click( function(){
 		Popup.close();
@@ -975,20 +975,25 @@ var Popup = (function(){
 
 	//Birthday check
 	$btnAge.click( function(e){
+		var parent = $(this).parent().parent();
+
 		e.preventDefault();
 		var minAge = 18;
-		var day = +$('.select-day').find('option:selected').val();
-		var month = +$('.select-month').find('option:selected').val();
-		var year = +$('.select-year').find('option:selected').val();
+		var day = +parent.find('.select-day').find('option:selected').val();
+		var month = +parent.find('.select-month').find('option:selected').val();
+		var year = +parent.find('.select-year').find('option:selected').val();
 		var date = new Date(year + 18, month, day);
 
 		if ( checkAge(date) ) {
-			Popup.close();
 			$.cookie('age', '1', { expires: 7 });
 			window.location.href = 'registration';
 		} else {
 			$.cookie('age', '0', { expires: 7 });
-			Popup.show(4);
+			if ( $(this).parent().parent().hasClass('ua-age') ) {
+				Popup.show(7);
+			} else {
+				Popup.show(4);
+			}
 		}
 	});
 

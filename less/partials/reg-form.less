@@ -19,6 +19,32 @@
 
 	.reg-step-2 {		
 		max-width: 380rem / @htmlFontSize;
+
+		.js-field-email {
+			display: none;	
+		}
+		.js-field-place {
+			display: none;
+		}		
+		.js-field-city {
+			display: none;
+		}
+
+		&.passed {
+			.js-field-email {
+				display: block;	
+			}
+			.js-field-place {
+				display: block;
+			}		
+			.js-field-city {
+				display: block;
+			}
+		}
+	}
+
+	.js-reg-step-2 {
+		display: none;
 	}
 
 	.reg-step-1 {
