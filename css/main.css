@@ -654,15 +654,33 @@ html {
 .column.flow-opposite {
   float: right;
 }
-.main-header h1 {
+.main-header {
+  padding-top: .8rem;
+}
+.main-header .logo {
+  position: relative;
+  width: 9.6875rem;
+  height: 10.125rem;
+  margin: 1.125rem 0 0;
   float: left;
-  width: 65%;
-  max-width: 40rem;
-  padding: 1.75rem 0 0;
-  font-size: 2.375em;
-  line-height: 1.18421053;
-  font-family: 'lc_chalk', 'Open Sans', sans-serif;
-  margin: 0;
+  background: no-repeat 0 0;
+  background-size: 100% 100%;
+  text-indent: -9999rem;
+}
+.main-header .logo.ua {
+  background-image: url(../img/sign-ua.png);
+}
+.main-header .logo.ru {
+  background-image: url(../img/sign-ru.png);
+}
+.main-header .logo a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
 }
 .main-header .auth {
   float: right;
@@ -706,6 +724,9 @@ html {
 input {
   outline: none;
 }
+h2 {
+  font-family: 'merriweather', sans-serif;
+}
 .wrapper {
   position: relative;
   min-height: 100%;
@@ -727,12 +748,24 @@ input {
 .wrapper .desk {
   position: relative;
   left: -1.875rem;
-  height: 25.25rem;
+  height: 28.5rem;
   max-width: 50rem;
   margin: 1.25rem 0 0;
   padding: 2.5rem 2.5rem 1.25rem;
   font-size: 0.875em;
-  background: url(../img/border.png) no-repeat 0 / 100% 100%;
+}
+.wrapper .desk h2 {
+  margin: 0;
+  font-family: 'merriweather', sans-serif;
+  font-size: 3.5em;
+  line-height: 1.08928571;
+}
+.wrapper .desk p {
+  max-width: 34rem;
+  margin: 2rem 0;
+}
+.wrapper .desk .btn {
+  margin: 1.875rem 0 0;
 }
 .wrapper .section {
   margin: 0 0 5.625rem;
@@ -761,12 +794,11 @@ input {
 .main-footer .support {
   position: relative;
   float: left;
-  width: 10.375rem;
-  height: 4.375rem;
+  width: 9.625rem;
+  height: 4.125rem;
   background: url(../img/supp.png) no-repeat 0 0 / 100% 100%;
 }
-.main-footer .support:before {
-  content: 'При поддержке';
+.main-footer .support .support-org {
   position: absolute;
   left: 0;
   bottom: 100%;
@@ -1010,6 +1042,12 @@ input {
   opacity: 1;
   z-index: 100;
 }
+.overlay .country-btns {
+  font-size: .8rem;
+}
+.overlay .country-btns .btn.btn--bordered {
+  padding: 0 1.4rem;
+}
 .overlay .popup {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -1021,12 +1059,21 @@ input {
   height: 17.8125rem;
   padding: 3.125rem 3.4375rem 0;
   margin: -8.90625rem 0 0 -18.375rem;
-  background: url('../img/popup-border.png') no-repeat 0 0 / 100% 100% #ffffff;
+  background: url('../img/popup-bg.jpg') no-repeat 0 0 / 100% 100% #ffffff;
   color: #000000;
 }
 .overlay .popup.active {
   opacity: 1;
   z-index: 1;
+}
+.overlay .popup:before {
+  content: '';
+  position: absolute;
+  border: 2px solid #fff;
+  top: -7px;
+  right: -7px;
+  bottom: -7px;
+  left: -7px;
 }
 .overlay .popup .popup-close {
   -webkit-transition: all 0.5s ease;
@@ -1232,7 +1279,7 @@ input {
 }
 .cabinet .cabinet-user label {
   display: inline-block;
-  width: 5.625rem;
+  width: 8rem;
   margin: 0 0 1rem;
   color: #acacac;
 }
@@ -1241,21 +1288,21 @@ input {
   text-transform: uppercase;
 }
 .cabinet .cabinet-user .pass label {
-  width: 11.875rem;
+  width: 14.875rem;
 }
 .cabinet .cabinet-user .pass input {
-  width: 9.375rem;
+  width: 8.375rem;
 }
 .cabinet .cabinet-user .pass .input-line {
-  width: 9.375rem;
-  left: 11.875rem;
+  left: 14.875rem;
+  width: 8.875rem;
 }
 .cabinet .cabinet-user .input-line {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   opacity: 1;
   position: absolute;
-  left: 5.625rem;
+  left: 8rem;
   bottom: 0.25rem;
   width: 15.625rem;
   height: 0.75rem;
@@ -1335,6 +1382,10 @@ input {
 }
 .popup.popup-sert .popup-close {
   position: fixed;
+  font-size: 3rem;
+}
+.popup.popup-sert:before {
+  content: none;
 }
 .sert.section {
   width: 1180px;

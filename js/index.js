@@ -931,6 +931,12 @@ var App = (function(){
 	$btnLog.click( function(){
 		Popup.show(5);
 	});
+
+	$(function(){
+		if ($.cookie('lang') == 'ru') $('h1.logo').removeClass('ua').addClass('ru');
+        if ($.cookie('lang') == 'ua') $('h1.logo').removeClass('ru').addClass('ua');
+	});
+	
 })();
 jQuery.fn.testExam = function(obj) {
 
@@ -1030,6 +1036,7 @@ var Reg = (function(){
 
 	step1.find('.spec').click( function(){
 		inputJob.val($(this).data('jobtype'));
+		$('.reg-form > p').hide();
 		step1.hide();
 		step2.show();
 	});

@@ -5,6 +5,7 @@ var Reg = (function(){
 
 	step1.find('.spec').click( function(){
 		inputJob.val($(this).data('jobtype'));
+		$('.reg-form > p').hide();
 		step1.hide();
 		step2.show();
 	});

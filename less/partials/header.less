@@ -1,16 +1,34 @@
 .main-header {
-
-	h1 {
+	padding-top: .8rem;
+	
+	.logo {
+		position: relative;
+		width: 155rem / @htmlFontSize;
+		height: 162rem / @htmlFontSize;
+		margin: 1.125rem 0 0;
 		float: left;
-		width: 65%;
-		max-width: 40rem;
-		padding: 28rem / @htmlFontSize 0 0;
 
+		background: no-repeat 0 0;
+		background-size: 100% 100%;
+		text-indent: -9999rem;
 
-		font-size: 38em / @htmlFontSize;
-		line-height: 45 / 38;
-		font-family: 'lc_chalk', 'Open Sans', sans-serif;
-		margin: 0;
+		&.ua {
+			background-image: url(../img/sign-ua.png);
+		}
+
+		&.ru {
+			background-image: url(../img/sign-ru.png);
+		}
+
+		a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+			outline: none;
+		}
 	}
 
 	.auth {

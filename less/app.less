@@ -12,6 +12,10 @@ input {
 	outline: none;
 }
 
+h2 {
+	font-family: 'merriweather', sans-serif;
+}
+
 .wrapper {
 	position: relative;
 	min-height: 100%;
@@ -36,14 +40,29 @@ input {
 	.desk {
 		position: relative;
 		left: -30rem / @htmlFontSize;
-		height: 404rem / @htmlFontSize;
+		height: 28.5rem;
 
 		max-width: 800rem / @htmlFontSize;
 		margin: 20rem / @htmlFontSize 0 0;
 		padding: 40rem / @htmlFontSize 40rem / @htmlFontSize 20rem / @htmlFontSize;
 
 		font-size: 14em / @htmlFontSize;
-		background: url(../img/border.png) no-repeat 0  e('/') 100% 100%;
+
+		h2 {
+			margin: 0;
+			font-family: 'merriweather', sans-serif;
+			font-size: 56em / @htmlFontSize;
+			line-height: 61 / 56;
+		}
+
+		p {
+			max-width: 34rem;
+			margin: 32rem / @htmlFontSize 0;
+		}
+
+		.btn {
+			margin: 30rem / @htmlFontSize 0 0;
+		}
 	}
 
 	.section {	
