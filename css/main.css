@@ -701,6 +701,7 @@ body {
 html {
   font: 16px 'Open Sans', sans-serif;
   color: #ffffff;
+  background: #000000;
 }
 input {
   outline: none;
@@ -1008,7 +1009,6 @@ input {
 .overlay.active {
   opacity: 1;
   z-index: 100;
-  overflow: auto;
 }
 .overlay .popup {
   -webkit-transition: all 0.5s ease;
@@ -1021,7 +1021,7 @@ input {
   height: 17.8125rem;
   padding: 3.125rem 3.4375rem 0;
   margin: -8.90625rem 0 0 -18.375rem;
-  background: #fff;
+  background: url('../img/popup-border.png') no-repeat 0 0 / 100% 100% #ffffff;
   color: #000000;
 }
 .overlay .popup.active {
@@ -1323,6 +1323,19 @@ input {
 .sert-wrapper {
   padding: 0;
 }
+.popup.popup-sert {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  color: #fff;
+  height: auto;
+  left: 0;
+  margin: 0 auto;
+  position: static;
+  top: 0;
+  width: auto;
+}
+.popup.popup-sert .popup-close {
+  position: fixed;
+}
 .sert.section {
   width: 1180px;
   height: 1669px;
@@ -1331,6 +1344,7 @@ input {
   background: url(../img/sert-2.jpg) no-repeat 0 0 / 100% auto;
 }
 .sert.section input {
+  padding: 0 0 0 .3rem;
   border: none;
   background: rgba(255, 255, 255, 0.3);
   color: #fff;
@@ -1381,6 +1395,12 @@ input {
 }
 .sert.section .sert-fields section {
   margin: 0 0 .7rem;
+}
+.sert.section .sert-fields section input {
+  float: right;
+  height: 2.3rem;
+  margin: 0.25rem 0 0;
+  width: 66%;
 }
 .sert.section .date-sign {
   font-size: 1.625rem;

@@ -1,6 +1,22 @@
 .sert-wrapper {
 	padding: 0;
 }
+
+.popup.popup-sert {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #fff;
+    height: auto;
+    left: 0;
+    margin: 0 auto;
+    position: static;
+    top: 0;
+    width: auto;
+
+    .popup-close {
+    	position: fixed;
+    }
+}
+
 .sert.section {
 	width: 1180px;
 	height: 1669px;
@@ -10,6 +26,7 @@
 	background: url(../img/sert-2.jpg) no-repeat 0 0 e('/') 100% auto;
 
 	input {
+		padding: 0 0 0 .3rem;
 		border: none;
 		background: rgba(255, 255, 255, .3);
 		color: #fff;
@@ -69,6 +86,12 @@
 
 		section {
 			margin: 0 0 .7rem;
+			input {
+				float: right;
+			    height: 2.3rem;
+			    margin: 0.25rem 0 0;
+			    width: 66%;
+			}
 		}
 	}
 	.date-sign {

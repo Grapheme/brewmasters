@@ -5,6 +5,7 @@ var Popup = (function(){
 	var $btnUkr = $('.js-button-ua');
 	var $btnAge = $('.js-button-age');
 	var $close = $('.js-popup-close');
+	var $btnSert = $('.js-btn-sert');
 
 	function checkAge(birthDate, minAge) {
 		var tempDate = new Date(birthDate);
@@ -28,6 +29,9 @@ var Popup = (function(){
 		$.cookie('lang', 'ru', { expires: 7 });
 		Popup.show(3);
 	});
+	$btnSert.click( function(){
+		Popup.show(8);
+	});
 	$btnUkr.click( function(){
 		$.cookie('lang', 'ua', { expires: 7 });
 		Popup.show(6);
@@ -48,10 +52,11 @@ var Popup = (function(){
 		var date = new Date(year + 18, month, day);
 
 		if ( checkAge(date) ) {
-			$.cookie('age', '1', { expires: 7 });
+			$.cookie('age', '1');
+			$.cookie('birthDate', year + '-' + ( month + 1 ) + '-' + day);
 			window.location.href = 'registration';
 		} else {
-			$.cookie('age', '0', { expires: 7 });
+			$.cookie('age', '0');
 			if ( $(this).parent().parent().hasClass('ua-age') ) {
 				Popup.show(7);
 			} else {
@@ -67,11 +72,15 @@ var Popup = (function(){
 			$overlay.addClass('active');
 			$popup.removeClass('active');
 			$('[data-popup="' + id + '"]').addClass('active');
+			if (id === 8) {
+				$overlay.css('overflow', 'auto');
+			}
 		},
 
 		close: function(){
 			$overlay.removeClass('active');
 			$popup.removeClass('active');
+			$overlay.removeAttr('style');
 		}
 
 	};

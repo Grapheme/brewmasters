@@ -5,7 +5,7 @@ jQuery.fn.testTheory = function() {
 		$btnFinish = $(this).find('.js-arrow-finish'),
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
-		activeSlide = $('.test-ul').data('question') - 1 || 0,
+		activeSlide = $('.test-ul').data('question'),
 		questionId = 1,
 		persent = $('.test-ul').data('progress') || 0;
 
@@ -152,7 +152,7 @@ jQuery.fn.testTheory = function() {
 	//Method show
 	element.bind('step.show', function(e, num){
 		slides.filter('.active').removeClass('active');
-		slides.eq(num).addClass('active');
+		slides.filter('[data-question="' + activeSlide + '"]').addClass('active');
 	});
 
 	$('.answ-opt').click( function(){
