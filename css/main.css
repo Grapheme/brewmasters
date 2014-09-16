@@ -740,6 +740,7 @@ h2 {
   right: 0;
   width: 50%;
   height: 70%;
+  max-height: 35rem;
   background: url(../img/hops.png) no-repeat right 0 / auto 100%;
 }
 .wrapper h1 {
@@ -748,7 +749,7 @@ h2 {
 .wrapper .desk {
   position: relative;
   left: -1.875rem;
-  height: 28.5rem;
+  height: auto;
   max-width: 50rem;
   margin: 1.25rem 0 0;
   padding: 2.5rem 2.5rem 1.25rem;
@@ -759,6 +760,9 @@ h2 {
   font-family: 'merriweather', sans-serif;
   font-size: 3.5em;
   line-height: 1.08928571;
+}
+.wrapper .desk h2 span {
+  font-size: 0.85em;
 }
 .wrapper .desk p {
   max-width: 34rem;
@@ -807,6 +811,8 @@ h2 {
   line-height: 2.5rem;
 }
 .main-footer .footer-nav {
+  position: relative;
+  top: -1.5rem;
   float: left;
   padding: 0 0 0 3rem;
 }
@@ -834,10 +840,19 @@ h2 {
   margin: 0 0 5.625rem;
 }
 .reg-form form {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+}
+.reg-form form .row .column.full label {
+  font-size: .9em;
+  color: #ccc;
+}
+.reg-form form .row .column.full .checkbox {
+  position: relative;
+  top: 4px;
+  left: 6px;
 }
 .reg-form > p {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .reg-form h2 {
   margin-top: 3.75rem;
@@ -955,6 +970,16 @@ h2 {
   opacity: 1;
   color: #c03b3b;
 }
+.reg-form .checkbox {
+  float: left;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: -0.3rem 0.5rem 0.5rem 0;
+}
+.reg-form .checkbox.invalid.error + span {
+  color: red;
+  color: rgba(255, 0, 0, 0.5);
+}
 .reg-form .error-text {
   opacity: 0;
   position: absolute;
@@ -1036,7 +1061,7 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
 }
 .overlay.active {
   opacity: 1;
@@ -1074,6 +1099,9 @@ h2 {
   right: -7px;
   bottom: -7px;
   left: -7px;
+}
+.overlay .popup.popup-age.ua-age .popup-head h3 {
+  line-height: 1.1em;
 }
 .overlay .popup .popup-close {
   -webkit-transition: all 0.5s ease;
@@ -1124,8 +1152,8 @@ h2 {
   max-width: 61.25rem;
   padding: 0 0 0 0.875rem;
 }
-.test .test-li[data-question="finish"] p {
-  margin-bottom: 15rem;
+.test .test-li[data-question="finish"] p:first-child {
+  margin-bottom: 2rem;
 }
 .test .test-success {
   max-width: 27rem;
@@ -1137,7 +1165,11 @@ h2 {
   padding: 0;
   margin: 0;
   list-style: none;
-  margin: 0 0 2.625rem;
+  margin: 3rem 0 5rem;
+}
+.test .btn.btn--bordered {
+  position: relative;
+  z-index: 1;
 }
 .test .btn.btn--bordered.disabled {
   -webkit-transition: none 0.5s ease;
@@ -1166,10 +1198,25 @@ h2 {
   display: inline-block;
 }
 .test .test-li {
+  position: relative;
   display: none;
 }
 .test .test-li.active {
   display: block;
+}
+.test .test-li.active:after {
+  content: '';
+  position: absolute;
+  top: -1.25rem;
+  right: -1.875rem;
+  bottom: -1.875rem;
+  left: -1.875rem;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+.test .test-li.active .question {
+  position: relative;
+  z-index: 1;
 }
 .test .test-li p {
   margin: 1.25rem 0;
@@ -1220,15 +1267,49 @@ h2 {
   margin: 0 0 2.5rem;
 }
 .exam-li .answ-opts .answ-opt {
+  position: relative;
   float: left;
+  min-height: 7.8125rem;
   margin: 0 2.375rem 0 0;
   cursor: pointer;
+}
+.exam-li .answ-opts .answ-opt:after {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  content: '';
+  position: absolute;
+  top: -0.9375rem;
+  right: -0.9375rem;
+  bottom: -0.9375rem;
+  left: -0.9375rem;
+  border: 4px solid #fff;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+.exam-li .answ-opts .answ-opt:hover:after {
+  border: 4px solid rgba(255, 255, 255, 0.8);
 }
 .exam-li .answ-opts .answ-opt:last-child {
   margin: 0;
 }
 .exam-li .answ-opts .answ-opt.js-selected.success .answ-pict:after {
   background-image: url(../img/questions/success.png);
+}
+.exam-li .answ-opts .answ-opt.js-selected.success:after {
+  top: -0.625rem;
+  right: -0.625rem;
+  bottom: -0.625rem;
+  left: -0.625rem;
+  border-color: rgba(0, 255, 0, 0.2);
+  box-shadow: inset 0 0 2px 3px rgba(0, 255, 0, 0.2);
+}
+.exam-li .answ-opts .answ-opt.js-selected:after {
+  top: -0.625rem;
+  right: -0.625rem;
+  bottom: -0.625rem;
+  left: -0.625rem;
+  border-color: rgba(255, 0, 0, 0.2);
+  box-shadow: inset 0 0 2px 3px rgba(255, 0, 0, 0.2);
 }
 .exam-li .answ-opts .answ-opt.js-selected .answ-pict:after {
   content: '';
@@ -1237,21 +1318,48 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../img/questions/error.png) no-repeat 0 0 / 100% 100%;
+  background: url(../img/questions/error.png) no-repeat 0 0 / cover;
 }
 .exam-li .answ-opts .answ-pict {
-  position: relative;
   width: 6.875rem;
   height: 6.25rem;
-  margin: 0 0 0.875rem;
+  margin: 0 auto 0.875rem;
 }
 .exam-li .answ-opts .answ-desc {
+  width: 8rem;
+  max-width: 8rem;
   font-size: 1.07142857em;
   text-align: center;
+  font-weight: 600;
+  word-wrap: break-word;
   color: #acacac;
 }
 .cabinet {
   width: 27.1875rem;
+}
+.cabinet.section .courses-links {
+  display: none;
+}
+.cabinet.section .exams-ul {
+  display: block;
+}
+.cabinet.section.active > h2 {
+  display: none;
+}
+.cabinet.section.active .courses-links {
+  display: block;
+}
+.cabinet.section.active .cabinet-user {
+  display: none;
+}
+.cabinet.section.active .exams-ul {
+  display: none;
+}
+.cabinet.section.active .js-begin-learning {
+  display: none;
+}
+.cabinet.section.active .btn {
+  display: none;
 }
 .cabinet .show-sert {
   margin: 1.75rem 0 0;
@@ -1260,6 +1368,17 @@ h2 {
   position: relative;
   width: 27.1875rem;
   margin: 0 0 6.25rem;
+}
+.cabinet .cabinet-user:after {
+  content: '';
+  position: absolute;
+  top: -1.5625rem;
+  right: -2.1875rem;
+  bottom: -2.1875rem;
+  left: -2.1875rem;
+  border: 4px solid #fff;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
 }
 .cabinet .cabinet-user.edit .btn {
   display: block;
@@ -1271,10 +1390,15 @@ h2 {
   display: none;
 }
 .cabinet .cabinet-user .btn {
+  position: relative;
+  z-index: 1;
   display: none;
 }
 .cabinet .cabinet-user fieldset {
   position: relative;
+  margin: 0 0 .75rem;
+}
+.cabinet .cabinet-user fieldset:last-child {
   margin: 0 0 1.75rem;
 }
 .cabinet .cabinet-user label {
@@ -1317,6 +1441,8 @@ h2 {
   font-size: 0.6875em;
 }
 .cabinet .cabinet-user input {
+  position: relative;
+  z-index: 1;
   width: 15.625rem;
   color: #fff;
   border: none;
@@ -1339,31 +1465,98 @@ h2 {
   top: 0;
   right: 0;
   z-index: 1;
+  width: 1.375rem;
+  height: 1.6875rem;
+  background: url(../img/pen.png) no-repeat 0 0 / 100% 100%;
   font-size: 1.5em;
   cursor: pointer;
 }
-.cabinet .exams-ul {
+.cabinet .cabinet-user .btn--edit .icon {
+  display: none;
+}
+.cabinet .js-begin-learning {
+  margin: 0.9375rem 0 0 0;
+}
+.exam-p {
+  max-width: 45rem;
+}
+.exams-ul {
   padding: 0;
   margin: 0;
   list-style: none;
+  max-width: 30rem;
   margin: 1.75rem 0 0;
 }
-.cabinet .exams-li {
+.reg-form .courses-link {
+  margin-top: 2.5rem;
+}
+.courses-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin: 3.75rem 0 2rem;
+  max-width: 32rem;
+}
+.courses-links li {
+  position: relative;
+  float: left;
+  width: 43%;
+  height: 6.25rem;
+  margin: 0 7% 7% 0;
+  text-align: center;
+}
+.courses-links li > div {
+  opacity: .3;
+  cursor: default;
+}
+.courses-links li a,
+.courses-links li div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15% 5% 0;
+  background: url("../img/border-small.png") no-repeat 0 0 / 100% 100%;
+  border: none;
+}
+.courses-links li a:before,
+.courses-links li div:before {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 0;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../img/border-small-hover.png") no-repeat 0 0 / 100% 100%;
+}
+.courses-links li:hover a:before,
+.courses-links li:hover div:before {
+  top: -0.5rem;
+  right: -0.5rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  opacity: 1;
+}
+.exams-li {
   margin: 0 0 0.75rem;
 }
-.cabinet .exams-li .course-name {
+.exams-li .course-name {
   float: left;
   margin: 0 0.375rem 0 0;
 }
-.cabinet .exams-li a {
+.exams-li a {
   float: left;
   margin: 0 0.375rem 0 0;
 }
-.cabinet .exams-li .exam-progress {
+.exams-li .exam-progress {
   float: right;
   margin: 0 0 0 0.375rem;
 }
-.cabinet .exams-li .exam-line {
+.exams-li .exam-line {
   overflow: hidden;
   background: url(../img/dotted-line.png) repeat-x 0 bottom;
 }
@@ -1380,6 +1573,10 @@ h2 {
   top: 0;
   width: auto;
 }
+.popup.popup-sert.active {
+  height: 1020px;
+  overflow: hidden;
+}
 .popup.popup-sert .popup-close {
   position: fixed;
   font-size: 3rem;
@@ -1392,12 +1589,14 @@ h2 {
   height: 1669px;
   margin: 0 auto;
   padding: 0 12%;
+  -webkit-transform: scale(0.5) translateY(-45%);
+  transform: scale(0.5) translateY(-45%);
   background: url(../img/sert-2.jpg) no-repeat 0 0 / 100% auto;
 }
 .sert.section input {
   padding: 0 0 0 .3rem;
   border: none;
-  background: rgba(255, 255, 255, 0.3);
+  background: none;
   color: #fff;
 }
 .sert.section h1 {
@@ -1438,6 +1637,7 @@ h2 {
 }
 .sert.section .sert-name input {
   width: 100%;
+  text-align: center;
 }
 .sert.section .sert-fields {
   text-align: left;
@@ -1486,7 +1686,7 @@ h2 {
   height: 2.0625rem;
   line-height: 1.875rem;
   border: 1px solid;
-  border-radius: 1.5rem;
+  border-radius: 0.125rem;
 }
 .btn.btn--rounded:hover {
   background: #ffffff;

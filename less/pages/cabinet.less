@@ -1,6 +1,36 @@
 .cabinet {
 	width: 435rem / @htmlFontSize;
 
+	&.section {
+		.courses-links {
+			display: none;
+		}
+		.exams-ul {
+			display: block;
+		}
+
+		&.active {
+			& > h2 {
+				display: none;
+			}
+			.courses-links {
+				display: block;
+			}
+			.cabinet-user {
+				display: none;
+			}
+			.exams-ul {
+				display: none;
+			}
+			.js-begin-learning {
+				display: none;
+			}
+			.btn {
+				display: none;
+			}
+		}
+	}
+
 	.show-sert {
 		margin: 28rem / @htmlFontSize 0 0;
 	}
@@ -9,6 +39,19 @@
 		position: relative;
 		width: 435rem / @htmlFontSize;
 		margin: 0 0 100rem / @htmlFontSize;
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: -25rem / @htmlFontSize;
+			right: -35rem / @htmlFontSize;
+			bottom: -35rem / @htmlFontSize;
+			left: -35rem / @htmlFontSize;
+
+			border: 4px solid #fff;
+			border: 4px solid rgba(255, 255, 255, .3);
+			border-radius: 3px;
+		}
 
 		&.edit {
 			.btn {
@@ -24,12 +67,18 @@
 		}
 
 		.btn {
+			position: relative;
+			z-index: 1;
 			display: none;
 		}
 
 		fieldset {
 			position: relative;
-			margin: 0 0 1.75rem;
+			margin: 0 0 .75rem;
+
+			&:last-child {
+				margin: 0 0 1.75rem;
+			}
 		}
 
 		label {
@@ -82,6 +131,8 @@
 		}
 
 		input {
+			position: relative;
+			z-index: 1;
 			width: 250rem / @htmlFontSize;
 			color: #fff;
 			border: none;
@@ -110,36 +161,109 @@
 			top: 0;
 			right: 0;
 			z-index: 1;
+			width: 22rem / @htmlFontSize;
+			height: 27rem / @htmlFontSize;
+			background: url(../img/pen.png) no-repeat 0 0 e('/') 100% 100%;
 			
 			font-size: 1.5em;
 			cursor: pointer;
+
+			.icon {
+				display: none;
+			}
 		}
 	}
-	.exams-ul {
-		.list-unstyled;
-		margin: 28rem / @htmlFontSize 0 0;
+	.js-begin-learning {
+		margin: 15rem / @htmlFontSize 0 0 0;
 	}
-	.exams-li {
-		margin: 0 0 12rem / @htmlFontSize;
+}
+.exam-p {
+	max-width: 45rem;
+}
+.exams-ul {
+	.list-unstyled;
+	max-width: 30rem;
+	margin: 28rem / @htmlFontSize 0 0;
+}
+.reg-form {
+	.courses-link {
+		margin-top: 2.5rem;
+	}
+}
+.courses-links {
+	.list-unstyled;
+	margin: 3.75rem 0 2rem;
+	max-width: 32rem;
 
-		.course-name {
-			float: left;
-			margin: 0 6rem / @htmlFontSize 0 0;
+	li {
+		position: relative;
+		float: left;
+		width: 43%;
+		height: 100rem / @htmlFontSize;
+		margin: 0 7% 7% 0;
+		text-align: center;		
+
+		&>div {
+			opacity: .3;
+			cursor: default;
 		}
 
-		a {
-			float: left;
-			margin: 0 6rem / @htmlFontSize 0 0;
-		}
-		.exam-progress {
-			float: right;
-			margin: 0 0 0 6rem / @htmlFontSize;
-		}
-		.exam-line {
-			overflow: hidden;
-			background: url(../img/dotted-line.png) repeat-x 0 bottom;
+		a,div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 15% 5% 0;
+			
+			background: url("../img/border-small.png") no-repeat 0 0 e('/') 100% 100%;
+			border: none;
+
+			&:before {
+				.transition;
+				opacity: 0;
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: url("../img/border-small-hover.png") no-repeat 0 0 e('/') 100% 100%;
+			}
 		}
 
+		&:hover {
+			a, div {
+				&:before {
+					top: -.5rem;
+right: -.5rem;
+bottom: -.5rem;
+left: -.5rem;
+opacity: 1;
+				}
+			}			
+		}
+	}
+}
+.exams-li {
+	margin: 0 0 12rem / @htmlFontSize;
+
+	.course-name {
+		float: left;
+		margin: 0 6rem / @htmlFontSize 0 0;
+	}
+
+	a {
+		float: left;
+		margin: 0 6rem / @htmlFontSize 0 0;
+	}
+	.exam-progress {
+		float: right;
+		margin: 0 0 0 6rem / @htmlFontSize;
+	}
+	.exam-line {
+		overflow: hidden;
+		background: url(../img/dotted-line.png) repeat-x 0 bottom;
 	}
 
 }

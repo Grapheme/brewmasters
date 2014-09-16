@@ -2,11 +2,25 @@
 	margin: 0 0 90rem / @htmlFontSize;
 
 	form {
-		margin-top: 48rem / @htmlFontSize;
+		margin-top: 1.5rem;
+
+		.row {
+			.column.full {
+				label {
+					font-size: .9em;
+					color: #ccc;
+				}
+				.checkbox {
+					position: relative;
+					top: 4px;
+					left: 6px;
+				}
+			}
+		}
 	}
 
 	&>p {
-		margin-top: 48rem / @htmlFontSize;
+		margin-top: 1rem;
 	}
 
 	h2 {
@@ -153,6 +167,18 @@
 					color: @clr-red;
 				}
 			}
+		}
+	}
+
+	.checkbox {
+	    float: left;
+	    height: 1.5rem;
+	    width: 1.5rem;
+    	margin: -.3rem .5rem .5rem 0;
+
+    	&.invalid.error + span {
+		    color: red;
+		    color: rgba(255, 0, 0, .5);
 		}
 	}
 

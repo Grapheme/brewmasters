@@ -5,12 +5,10 @@ jQuery.fn.testTheory = function() {
 		$btnFinish = $(this).find('.js-arrow-finish'),
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
-		activeSlide = $('.test-ul').data('question'),
+		activeSlideData = $('.test-ul').data('question'),
+		activeSlide = slides.filter('[data-question="' + activeSlideData + '"]').index();
 		questionId = 1,
 		persent = $('.test-ul').data('progress') || 0;
-
-		console.log(persent);
-		console.log(activeSlide);
 
 	//knob
 
@@ -143,6 +141,10 @@ jQuery.fn.testTheory = function() {
 				testId: testId,
 				questId: questionId,
 				testProgress: persent
+			}, function(data){
+				if (data.status === true) {
+					$(".test-li[data-question='finish']").html(data.responseText);
+				}
 			});
 		} else {
 		}
@@ -152,15 +154,23 @@ jQuery.fn.testTheory = function() {
 	//Method show
 	element.bind('step.show', function(e, num){
 		slides.filter('.active').removeClass('active');
-		slides.filter('[data-question="' + activeSlide + '"]').addClass('active');
+		slides.eq(activeSlide).addClass('active');
 	});
 
 	$('.answ-opt').click( function(){
+		var $parent = $(this).parent();
+
 		$(this).addClass('js-selected');
-		if ( $(this).hasClass('success') ) {
-			$(this).parent().children().unbind();
+
+		if( !$parent.find('.success:not(.js-selected)')[0] ) {
+			$(this).unbind();
 			$arrowRight.removeClass('disabled');
 		}
+
+		// if ( $(this).hasClass('success') ) {
+		// 	$(this).parent().children().unbind();
+		// 	$arrowRight.removeClass('disabled');
+		// }
 	});
 
 	//Show first slide at the beginning

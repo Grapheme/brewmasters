@@ -26,14 +26,14 @@ var Popup = (function(){
 
 	//Click events
 	$btnRus.click( function(){
-		$.cookie('lang', 'ru', { expires: 7 });
-		Popup.show(3);
+		// $.cookie('lang', 'ru', { expires: 7 });
+		Popup.show(6);
 	});
-	$btnSert.click( function(){
+	$(document).on('click', '.js-btn-sert', function(){
 		Popup.show(8);
 	});
 	$btnUkr.click( function(){
-		$.cookie('lang', 'ua', { expires: 7 });
+		// $.cookie('lang', 'ua', { expires: 7 });
 		Popup.show(6);
 	});
 	$close.click( function(){
@@ -69,15 +69,19 @@ var Popup = (function(){
 	return {
 
 		show: function(id){
+			$('.main-header, main, .main-footer').css('opacity', '0');
 			$overlay.addClass('active');
+			$('html').css('overflow', 'hidden');
 			$popup.removeClass('active');
 			$('[data-popup="' + id + '"]').addClass('active');
 			if (id === 8) {
 				$overlay.css('overflow', 'auto');
+				$('html').removeAttr('style');
 			}
 		},
 
 		close: function(){
+			$('.main-header, main, .main-footer').removeAttr('style');
 			$overlay.removeClass('active');
 			$popup.removeClass('active');
 			$overlay.removeAttr('style');

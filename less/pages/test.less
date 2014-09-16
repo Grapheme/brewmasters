@@ -2,8 +2,8 @@
 	max-width: 980rem / @htmlFontSize;
 	padding: 0 0 0 14rem / @htmlFontSize;
 
-	.test-li[data-question="finish"] p {
-		margin-bottom: 15rem;
+	.test-li[data-question="finish"] p:first-child {
+		margin-bottom: 2rem;
 	} 
 
 	.test-success {
@@ -16,10 +16,12 @@
 
 	.test-ul {
 		.list-unstyled;
-		margin: 0 0 42rem / @htmlFontSize;
+		margin: 3rem 0 80rem / @htmlFontSize;
 	}
 
 	.btn.btn--bordered {
+		position: relative;
+		z-index: 1;
 
 		&.disabled {
 			.transition(none);
@@ -55,10 +57,27 @@
 	}
 
 	.test-li {
+		position: relative;
 		display: none;
 
 		&.active {
 			display: block;
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: -20rem / @htmlFontSize;
+				right: -30rem / @htmlFontSize;
+				bottom: -30rem / @htmlFontSize;
+				left: -30rem / @htmlFontSize;
+
+				border: 4px solid rgba(255, 255, 255, .3);
+				border-radius: 3px;
+			}
+			.question {
+				position: relative;
+				z-index: 1;
+			}
 		}
 		p {
 			margin: 20rem / @htmlFontSize 0;

@@ -29,6 +29,7 @@ h2 {
 		right: 0;
 		width: 50%;
 		height: 70%;
+		max-height: 560rem / @htmlFontSize;
 
 		background: url(../img/hops.png) no-repeat right 0 e('/') auto 100%;
 	}
@@ -40,7 +41,7 @@ h2 {
 	.desk {
 		position: relative;
 		left: -30rem / @htmlFontSize;
-		height: 28.5rem;
+		height: auto;
 
 		max-width: 800rem / @htmlFontSize;
 		margin: 20rem / @htmlFontSize 0 0;
@@ -53,6 +54,10 @@ h2 {
 			font-family: 'merriweather', sans-serif;
 			font-size: 56em / @htmlFontSize;
 			line-height: 61 / 56;
+
+			span {
+				font-size: 0.85em;
+			}
 		}
 
 		p {

@@ -21,10 +21,31 @@
 		margin: 0 0 40rem / @htmlFontSize;
 
 		.answ-opt {
-			float: left;			
+			position: relative;
+			float: left;
+			min-height: 125rem / @htmlFontSize;
 			margin: 0 38rem / @htmlFontSize 0 0;
 
 			cursor: pointer;
+
+			&:after {
+				.transition;
+				content: '';
+				position: absolute;
+				top: -15rem / @htmlFontSize;
+				right: -15rem / @htmlFontSize;
+				bottom: -15rem / @htmlFontSize;
+				left: -15rem / @htmlFontSize;
+				border: 4px solid #fff;
+				border: 4px solid rgba(255, 255, 255, .5);
+				border-radius: 3px;
+			}
+
+			&:hover {
+				&:after {
+					border: 4px solid rgba(255, 255, 255, .8);
+				}
+			}
 
 			&:last-child {
 				margin: 0;
@@ -37,7 +58,24 @@
 						&:after {
 							background-image: url(../img/questions/success.png);
 						}
-					}					
+					}
+					&:after {
+						top: -10rem / @htmlFontSize;
+						right: -10rem / @htmlFontSize;
+						bottom: -10rem / @htmlFontSize;
+						left: -10rem / @htmlFontSize;
+						border-color: rgba(0, 255, 0, .2);
+						box-shadow: inset 0 0 2px 3px rgba(0, 255, 0, .2);
+					}				
+				}
+
+				&:after {
+					top: -10rem / @htmlFontSize;
+					right: -10rem / @htmlFontSize;
+					bottom: -10rem / @htmlFontSize;
+					left: -10rem / @htmlFontSize;
+					border-color: rgba(255, 0, 0, .2);
+					box-shadow: inset 0 0 2px 3px rgba(255, 0, 0, .2);
 				}
 
 				.answ-pict {
@@ -49,21 +87,24 @@
 						width: 100%;
 						height: 100%;
 
-						background: url(../img/questions/error.png) no-repeat 0 0 e('/') 100% 100%;
+						background: url(../img/questions/error.png) no-repeat 0 0 e('/') cover;
 					}
 				}
 			}
 		}
 		.answ-pict {
-			position: relative;
 			width: 110rem / @htmlFontSize;
 			height: 100rem / @htmlFontSize;
-			margin: 0 0 14rem / @htmlFontSize;
+			margin: 0 auto 14rem / @htmlFontSize;
 		}
 		.answ-desc {
+			width: 8rem;
+			max-width: 8rem;
 			font-size: 15em / 14;
 			text-align: center;
+			font-weight: 600;
 
+			word-wrap: break-word;
 			color: @clr-gray;
 		}
 	}

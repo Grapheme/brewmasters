@@ -922,6 +922,14 @@ var App = (function(){
 	var $btnLog = $('.js-btn-signin');
 	var $btnCab = $('.js-btn-edit');
 	var $cabForm = $('.cabinet-user');
+	var $numInput = $('.js-num-input');
+	var $txtInput = $('.js-txt-input');
+	var $beginEd = $('.js-begin-learning');
+
+	$beginEd.click( function(e){
+		e.preventDefault();
+		$('.cabinet.section').toggleClass('active');
+	});
 
 	$btnCab.click( function(){
 		$cabForm.addClass('edit');
@@ -932,9 +940,35 @@ var App = (function(){
 		Popup.show(5);
 	});
 
+	$numInput.on("keypress keyup blur",function (event) {
+       $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if (event.keyCode != 8) {
+        	if ((event.which < 48 || event.which > 57)) {
+	            event.preventDefault();
+	        }
+        }        
+    });
+
+	$txtInput.bind('keypress keyup blur',function(){
+		var node = $(this);
+		node.val(node.val().replace(/[1234567890!@#$%^&*();{}'"]/gi,'') ); }
+	);
+
 	$(function(){
-		if ($.cookie('lang') == 'ru') $('h1.logo').removeClass('ua').addClass('ru');
-        if ($.cookie('lang') == 'ua') $('h1.logo').removeClass('ru').addClass('ua');
+		if ($.cookie('lang') == 'ru') {
+            $('h1.logo').removeClass('ua').addClass('ru');
+            $('.js-f-soc').attr('href', 'http://suninbev.ru/responsibility/');
+            $('.js-f-br').attr('href', 'http://suninbev.ru/brands/');
+            $('.js-f-fb').attr('href', 'http://fb.com/suninbev').html('fb.com/suninbev');
+            $('.js-f-main').attr('href', 'http://suninbev.ru').html('suninbev.ru');
+        }
+        if ($.cookie('lang') == 'ua') {
+            $('h1.logo').removeClass('ru').addClass('ua');
+            $('.js-f-soc').attr('href', 'http://www.suninbev.com.ua/ru/csr');
+            $('.js-f-br').attr('href', 'http://www.suninbev.com.ua/ru/brands');
+            $('.js-f-fb').attr('href', 'https://www.facebook.com/SUNInBev.UA?ref=br_rs').html('fb.com/SUNInBev.UA');
+            $('.js-f-main').attr('href', 'http://www.suninbev.com.ua/').html('suninbev.com.ua');
+        }
 	});
 	
 })();
@@ -969,14 +1003,14 @@ var Popup = (function(){
 
 	//Click events
 	$btnRus.click( function(){
-		$.cookie('lang', 'ru', { expires: 7 });
-		Popup.show(3);
+		// $.cookie('lang', 'ru', { expires: 7 });
+		Popup.show(6);
 	});
-	$btnSert.click( function(){
+	$(document).on('click', '.js-btn-sert', function(){
 		Popup.show(8);
 	});
 	$btnUkr.click( function(){
-		$.cookie('lang', 'ua', { expires: 7 });
+		// $.cookie('lang', 'ua', { expires: 7 });
 		Popup.show(6);
 	});
 	$close.click( function(){
@@ -1012,15 +1046,19 @@ var Popup = (function(){
 	return {
 
 		show: function(id){
+			$('.main-header, main, .main-footer').css('opacity', '0');
 			$overlay.addClass('active');
+			$('html').css('overflow', 'hidden');
 			$popup.removeClass('active');
 			$('[data-popup="' + id + '"]').addClass('active');
 			if (id === 8) {
 				$overlay.css('overflow', 'auto');
+				$('html').removeAttr('style');
 			}
 		},
 
 		close: function(){
+			$('.main-header, main, .main-footer').removeAttr('style');
 			$overlay.removeClass('active');
 			$popup.removeClass('active');
 			$overlay.removeAttr('style');
@@ -1055,12 +1093,10 @@ jQuery.fn.testTheory = function() {
 		$btnFinish = $(this).find('.js-arrow-finish'),
 		$testProgress = $(this).find('.js-test-progress'),
 		slides = $(this).find('.test-li'),
-		activeSlide = $('.test-ul').data('question'),
+		activeSlideData = $('.test-ul').data('question'),
+		activeSlide = slides.filter('[data-question="' + activeSlideData + '"]').index();
 		questionId = 1,
 		persent = $('.test-ul').data('progress') || 0;
-
-		console.log(persent);
-		console.log(activeSlide);
 
 	//knob
 
@@ -1193,6 +1229,10 @@ jQuery.fn.testTheory = function() {
 				testId: testId,
 				questId: questionId,
 				testProgress: persent
+			}, function(data){
+				if (data.status === true) {
+					$(".test-li[data-question='finish']").html(data.responseText);
+				}
 			});
 		} else {
 		}
@@ -1202,15 +1242,23 @@ jQuery.fn.testTheory = function() {
 	//Method show
 	element.bind('step.show', function(e, num){
 		slides.filter('.active').removeClass('active');
-		slides.filter('[data-question="' + activeSlide + '"]').addClass('active');
+		slides.eq(activeSlide).addClass('active');
 	});
 
 	$('.answ-opt').click( function(){
+		var $parent = $(this).parent();
+
 		$(this).addClass('js-selected');
-		if ( $(this).hasClass('success') ) {
-			$(this).parent().children().unbind();
+
+		if( !$parent.find('.success:not(.js-selected)')[0] ) {
+			$(this).unbind();
 			$arrowRight.removeClass('disabled');
 		}
+
+		// if ( $(this).hasClass('success') ) {
+		// 	$(this).parent().children().unbind();
+		// 	$arrowRight.removeClass('disabled');
+		// }
 	});
 
 	//Show first slide at the beginning
